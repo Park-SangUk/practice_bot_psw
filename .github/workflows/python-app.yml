@@ -26,4 +26,4 @@ jobs:
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         CHAT_ID: ${{ secrets.CHAT_ID }}
       run: |
-        python telegram_bot.py
+        python practice_bot_psw/telegram_bot.py
