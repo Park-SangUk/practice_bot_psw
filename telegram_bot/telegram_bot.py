@@ -10,12 +10,11 @@ def create_soup(url):
     return soup
 
 def c19_bot():
-    result = ""
 
     url = "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun="
     soup = create_soup(url)
 
-    
+    result = ""
     c19_infos = soup.find("tbody").find_all("tr")
     for c19_info in c19_infos:
         area = c19_info.find("th").text
@@ -23,7 +22,7 @@ def c19_bot():
             c19_sum = c19_info.find("td", attrs={"headers": "status_level l_type1"}).text
             c19_1 = c19_info.find("td", attrs={"headers": "status_level l_type2"}).text
             c19_2= c19_info.find("td", attrs={"headers": "status_level l_type3"}).text
-            result = result + f"---------- {c19_sum} ----------\n국내발생 : {c19_1}\n 해외유입 : {c19_2}\n"
+            result = result + f"---------- {area} ----------\n총 발생: {c19_sum}\n국내발생 : {c19_1}\n해외유입 : {c19_2}\n"
     return result
 
 
