@@ -10,6 +10,7 @@ def create_soup(url):
     return soup
 
 def c19_bot():
+    result = ""
 
     url = "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun="
     soup = create_soup(url)
