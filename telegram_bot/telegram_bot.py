@@ -21,11 +21,11 @@ def c19_bot():
     soup = create_soup(url)
     date = create_date()
 
-    result = f"{date} 코로나 현황 (매일 오전 7시에 알려드립니다.)\n"
+    result = f"{date} 코로나 현황 (매일 오전 10시 이후에 알려드립니다.)\n"
     c19_infos = soup.find("tbody").find_all("tr")
     for c19_info in c19_infos:
         area = c19_info.find("th").text
-        if area == "합계" or area == "대전" or area == "충북":
+        if area == "합계" or area == "서울" or area == "경기" or area == "대전" or area == "구미" or area == "경주" or area == "포항" or area == "부산":
             c19_sum = c19_info.find("td", attrs={"headers": "status_level l_type1"}).text
             c19_1 = c19_info.find("td", attrs={"headers": "status_level l_type2"}).text
             c19_2= c19_info.find("td", attrs={"headers": "status_level l_type3"}).text
