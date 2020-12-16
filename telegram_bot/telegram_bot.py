@@ -25,7 +25,7 @@ def c19_bot():
     c19_infos = soup.find("tbody").find_all("tr")
     for c19_info in c19_infos:
         area = c19_info.find("th").text
-        if area == "합계" or area == "서울" or area == "경기" or area == "대전" or area == "구미" or area == "경주" or area == "포항" or area == "부산":
+        if area == "합계" or area == "서울" or area == "경기" or area == "대전" or area == "경북" or area == "부산":
             c19_sum = c19_info.find("td", attrs={"headers": "status_level l_type1"}).text
             c19_1 = c19_info.find("td", attrs={"headers": "status_level l_type2"}).text
             c19_2= c19_info.find("td", attrs={"headers": "status_level l_type3"}).text
