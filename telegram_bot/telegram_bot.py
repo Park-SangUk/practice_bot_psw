@@ -21,7 +21,7 @@ def c19_bot():
     soup = create_soup(url)
     date = create_date()
 
-    result = f"{date} 코로나 현황 (매일 오전 10시 이후에 알려드립니다.)\n"
+    result = f"{date} 코로나 현황 [총발생 (국내발생 / 해외유입)]\n(매일 오전 10시 이후에 알려드립니다.)\n"
     c19_infos = soup.find("tbody").find_all("tr")
     for c19_info in c19_infos:
         area = c19_info.find("th").text
@@ -29,7 +29,7 @@ def c19_bot():
             c19_sum = c19_info.find("td", attrs={"headers": "status_level l_type1"}).text
             c19_1 = c19_info.find("td", attrs={"headers": "status_level l_type2"}).text
             c19_2= c19_info.find("td", attrs={"headers": "status_level l_type3"}).text
-            result = result + f"---------- {area} ----------\n총 발생: {c19_sum}\n국내발생 : {c19_1}\n해외유입 : {c19_2}\n"
+            result = result + f"---------- {area} ----------\n[{c19_sum} ({c19_1} / {c19_2})]\n"
     return result
 
 
