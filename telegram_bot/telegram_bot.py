@@ -26,6 +26,8 @@ def c19_bot():
     for c19_info in c19_infos:
         area = c19_info.find("th").text
         c19_sum = c19_info.find("td", attrs={"headers": "status_level l_type1"}).text
+        if c19_sum == 0:
+            continue
         c19_1 = c19_info.find("td", attrs={"headers": "status_level l_type2"}).text
         c19_2= c19_info.find("td", attrs={"headers": "status_level l_type3"}).text
         result = result + f"-{area} : {c19_sum} ({c19_1} / {c19_2})\n"
