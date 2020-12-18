@@ -21,7 +21,7 @@ def c19_bot():
     soup = create_soup(url)
     date = create_date()
 
-    result = f"{date} 코로나 현황 [총발생 (국내발생 / 해외유입)]\n(매일 오전 10시 이후에 알려드립니다.)\n"
+    result = f"{date} 코로나 현황\n[총발생 (국내발생 / 해외유입)]\n(매일 오전 10시 이후에 알려드립니다.)\n"
     c19_infos = soup.find("tbody").find_all("tr")
     for c19_info in c19_infos:
         area = c19_info.find("th").text
